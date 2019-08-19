@@ -3,7 +3,7 @@ const mongoose = require('./connection.js')
 const AccountSchema = mongoose.Schema(
   {
     name: String,
-    single: Bool,
+    single: Boolean,
     numberOfFriends: Number
   }
 )
@@ -19,3 +19,8 @@ const createBlankAccount = () => {
 }
 
 const getAccounts = () => { return AccountCollection.find() }
+
+module.exports = {
+  createBlankAccount,
+  getAccounts
+}

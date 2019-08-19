@@ -22,7 +22,11 @@ const getAccounts = () => { return AccountCollection.find() }
 
 const getAccount = (id) => { return AccountCollection.findById(id) }
 
+const addAccount = (accountNew) => { return AccountCollection..insertMany([ accountNew])}
+
 module.exports = {
   createBlankAccount,
-  getAccounts
+  getAccounts,
+  getAccount,
+  addAccount
 }

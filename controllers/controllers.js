@@ -6,13 +6,19 @@ const accountRouter = express.Router()
 accountRouter.get('/', function(req, res) {
     accountsApi.getAccounts()
       .then(accounts => {
-        res.send(accounts)
+        res.render('allProfiles', {accounts})
       })
-  })
+})
 
+accountRouter.get('/:accountId', function(req, res) {
+    accountsApi.getAccount(req.params.accountId)
+      .then(account => {
+        res.render('singleProfile', {account})
+      })
+})
 
 accountRouter.get('/new', function(req, res) {
-  res.send(accountsApi.createBlankAccount());
+  res.render(accountsApi.createBlankAccount());
 })
   // accountRouter.get('/:accountId', function(req,res){
   //   accountsApi.getAccount(req.params.accountId)

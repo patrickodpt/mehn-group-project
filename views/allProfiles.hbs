@@ -1,11 +1,12 @@
 <h1>All Profiles</h1>
 
-<a href="/profiles/createProfile">New Profile</a>
+<!-- <a href="/accounts/new">New Profile</a> -->
 
-<ul> 
-    {{#each allProfiles}}
+<ul>
+    {{#each accounts}}
     <li>
-      <a href="profiles/{{@index}}">{{name}}</a>
+      <span>{{id}}</span>
+      <a href="/accounts/{{id}}">{{name}}</a>
     </li>
     {{/each}}
 </ul>

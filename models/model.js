@@ -19,3 +19,8 @@ const createBlankAccount = () => {
 }
 
 const getAccounts = () => { return AccountCollection.find() }
+
+module.exports = {
+  createBlankAccount,
+  getAccounts
+}

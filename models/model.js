@@ -24,9 +24,14 @@ const getAccount = (id) => { return AccountCollection.findById(id) }
 
 const addAccount = (accountNew) => { return AccountCollection.insertMany([ accountNew])}
 
+const updateAccount = (id, account) => {
+  return AccountCollection.findOneAndUpdate({_id: id}, account)
+}
+
 module.exports = {
   createBlankAccount,
   getAccounts,
   getAccount,
-  addAccount
+  addAccount,
+  updateAccount
 }

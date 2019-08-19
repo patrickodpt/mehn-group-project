@@ -10,4 +10,12 @@ const AccountSchema = mongoose.Schema(
 
 const AccountCollection = mongoose.model('Account', AccountSchema)
 
+const createBlankAccount = () => {
+  return AccountCollection.create({
+    name: "",
+    single: false,
+    numberOfFriends: 0
+  })
+}
+
 const getAccounts = () => { return AccountCollection.find() }

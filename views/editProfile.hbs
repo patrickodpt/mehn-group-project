@@ -1,0 +1,17 @@
+<form method="POST" action="/profiles/{{index}}?_method=PUT">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{singleProfile.name}}"/>
+
+    <label for="employees">Number of friends</label>
+    <input type="number" name="friends" value="{{singleProfile.friends}}"/>
+
+    <label>Single</label>
+    <input type="checkbox"  name="single" value="true"
+    {{#if singleProfile.single}} checked{{/if}}/>
+
+    <input type="submit" value="Update profile" />
+</form>
+
+<form method="POST" action="/profiles/{{index}}?_method=DELETE">
+    <input type="submit" value="Delete profile" />
+</form>

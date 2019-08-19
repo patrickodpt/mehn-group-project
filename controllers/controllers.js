@@ -1,5 +1,5 @@
 const express = require ('express')
-const accountAPI = require ('../models/model.js')
+const accountsApi = require ('../models/model.js')
 const accountRouter = express.Router()
 
 

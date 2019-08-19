@@ -28,6 +28,9 @@ const updateAccount = (id, account) => {
   return AccountCollection.findOneAndUpdate({_id: id}, account)
 }
 
+const deleteAccount = (id) => { return AccountCollection.findByIdAndDelete(id) }
+
+
 module.exports = {
   createBlankAccount,
   getAccounts,

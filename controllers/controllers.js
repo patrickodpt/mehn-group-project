@@ -12,7 +12,7 @@ accountRouter.get('/', function(req, res) {
 
 
 accountRouter.get('/new', function(req, res) {
-    res.send(accountsApi.createAccount());
+    res.send(accountsApi.createBlankAccount());
   })
   accountRouter.get('/:accountId', function(req,res){
     accountsApi.getAccount(req.params.accountId)

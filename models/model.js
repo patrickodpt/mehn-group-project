@@ -9,3 +9,5 @@ const AccountSchema = mongoose.Schema(
 )
 
 const AccountCollection = mongoose.model('Account', AccountSchema)
+
+const getAccounts = () => { return AccountCollection.find() }

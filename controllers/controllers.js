@@ -12,14 +12,15 @@ accountRouter.get('/', function(req, res) {
 
 
 accountRouter.get('/new', function(req, res) {
-    res.send(accountsApi.createBlankAccount());
-  })
-  accountRouter.get('/:accountId', function(req,res){
-    accountsApi.getAccount(req.params.accountId)
-      .then(account => {
-        res.send(account)
-      })
-  })
+  res.send(accountsApi.createBlankAccount());
+})
+  // accountRouter.get('/:accountId', function(req,res){
+  //   accountsApi.getAccount(req.params.accountId)
+  //     .then(account => {
+  //       res.send(account)
+  //     })
+  // })
+
 
   accountRouter.post('/', function(req, res){
     accountsApi.addAccount(req.body)

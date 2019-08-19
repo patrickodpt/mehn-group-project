@@ -36,5 +36,6 @@ module.exports = {
   getAccounts,
   getAccount,
   addAccount,
-  updateAccount
+  updateAccount,
+  deleteAccount
 }

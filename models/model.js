@@ -20,6 +20,8 @@ const createBlankAccount = () => {
 
 const getAccounts = () => { return AccountCollection.find() }
 
+const getAccount = (id) => { return AccountCollection.findById(id) }
+
 module.exports = {
   createBlankAccount,
   getAccounts

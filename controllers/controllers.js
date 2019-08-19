@@ -9,7 +9,7 @@ accountRouter.get('/', function(req, res) {
         res.send(accounts)
       })
   })
-  
+
 
 accountRouter.get('/new', function(req, res) {
     res.send(accountsApi.createAccount());

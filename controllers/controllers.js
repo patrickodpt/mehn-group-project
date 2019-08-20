@@ -6,42 +6,42 @@ const accountRouter = express.Router()
 accountRouter.get('/', function (req, res) {
   accountsApi.getAccounts()
     .then(accounts => {
-      res.send(accounts)
+      res.render('allProfiles', {accounts})
     })
 })
 
 
 accountRouter.get('/new', function (req, res) {
-  res.send(accountsApi.createBlankAccount());
+  res.render(accountsApi.createBlankAccount());
 })
 
 
 
-accountRouter.get('/:accountId', function (req, res) {
+accountRouter.get('/:id', function (req, res) {
   accountsApi.getAccount(req.params.id)
     .then((account) => {
-      res.send(account)
+      res.render('singleProfile', {account})
     })
 })
 
 accountRouter.post('/', function (req, res) {
   accountsApi.addAccount(req.body)
     .then(() => {
-      res.send('Account created');
+      res.render('Account created');
     })
 })
 
-accountRouter.put('/:accountId', function (req, res) {
-  accountsApi.updateAccount(req.params.accountId, req.body)
+accountRouter.put('/:id', function (req, res) {
+  accountsApi.updateAccount(req.params.id, req.body)
     .then(() => {
-      res.send('Account updated');
+      res.render('Account updated');
     })
 })
 
-accountRouter.delete('/:accountId', function (req, res) {
-  accountsApi.deleteAccount(req.params.accountId)
+accountRouter.delete('/:id', function (req, res) {
+  accountsApi.deleteAccount(req.params.id)
     .then(() => {
-      res.send('Account deleted');
+      res.render('Account deleted');
     })
 })
 

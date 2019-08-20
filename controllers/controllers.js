@@ -6,43 +6,58 @@ const accountRouter = express.Router()
 accountRouter.get('/', function(req, res) {
     accountsApi.getAccounts()
       .then(accounts => {
-        res.send(accounts)
+        res.render('allProfiles', {accounts})
       })
-  })
-
+})
 
 accountRouter.get('/new', function(req, res) {
-  res.send(accountsApi.createBlankAccount());
+  res.render('createProfile') //this simply takes user to '/new' to create their account.
 })
-  // accountRouter.get('/:accountId', function(req,res){
-  //   accountsApi.getAccount(req.params.accountId)
-  //     .then(account => {
-  //       res.send(account)
-  //     })
-  // })
+
+// :::::BELOW WAS COMMENTED OUT FOR TEST::::::
+//   accountsApi.createBlankAccount().then(
+//     (account) => {res.render('createProfile', {account})}
+//   )
+// })
+// accountRouter.get('/:accountId', function(req,res){
+//   accountsApi.getAccount(req.params.accountId)
+//     .then(account => {
+//       res.send(account)
+//     })
+// })
 
 
-  accountRouter.post('/', function(req, res){
-    accountsApi.addAccount(req.body)
-      .then(() => {
-        res.send('Account created');
-      })
-  })
+accountRouter.get('/:accountId', function(req, res) {
+  accountsApi.getAccount(req.params.accountId).then(
+    account => {
+      res.render('editProfile', {account})
+    }
+  )
+})
 
-  accountRouter.put('/:accountId', function(req,res){
-    accountsApi.updateAccount(req.params.accountId, req.body)
-      .then(() => {
-        res.send('Account updated');
-      })
-  })
+//when new account is submitted it goes here.
+accountRouter.post('/', function(req, res){
+  accountsApi.addAccount(req.body).then(
+    () => {
+      res.redirect('/accounts/')
+    })
+})
 
-  accountRouter.delete('/:accountId', function(req,res){
-    accountsApi.deleteAccount(req.params.accountId)
-      .then(() => {
-        res.send('Account deleted');
-      })
-  })
+accountRouter.put('/:accountId', function(req,res){
+  accountsApi.updateAccount(req.params.accountId, req.body).then(
+    () => {
+      res.redirect('/accounts/')
+    }
+  )
+})
 
-  module.exports = {
-      accountRouter
-  }
+accountRouter.delete('/:accountId', function(req,res){
+  accountsApi.deleteAccount(req.params.accountId).then(
+    () => {
+      res.redirect('/accounts/')
+    })
+})
+
+module.exports = {
+    accountRouter
+}

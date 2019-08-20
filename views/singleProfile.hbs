@@ -1,3 +1,5 @@
 <div>
-    <p>account name</p> {{name}}
+    <p>Name: {{account.name}}</p>
+    <p>Single Status: {{#if account.single}} Single {{else}} Not Single {{/if}}</p>
+    <p>Number of Friends: {{#if account.numberOfFriends}} {{account.numberOfFriends}} {{else}} 0 {{/if}}</p>
 </div>

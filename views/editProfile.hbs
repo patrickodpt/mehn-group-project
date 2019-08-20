@@ -1,17 +1,21 @@
-<form method="POST" action="/accounts/{{id}}?_method=PUT">
-    <label>Name</label>
-    <input type="text" name="name" value="{{account.name}}"/>
+<form method="POST" action="/accounts/{{account.id}}?_method=PUT">
+  <label>Name</label>
+  <input type="text" name="name" value="{{account.name}}"/>
 
-    <label>Single</label>
-    <input type="checkbox"  name="single" value="true"
-    {{#if singleProfile.single}} checked{{/if}}/>
+  <div>
+    <label>
+      <input type="checkbox" name="single" value="true"
+      {{#if account.single}}checked{{/if}}/>
+      <span>Single</span>
+    </label>
+  </div>
 
-    <label>Number of Friends</label>
-    <input type="number" name="numberOfFriends" value="{{account.numberOfFriends}}"/>
+  <label>Number of Friends</label>
+  <input type="number" name="numberOfFriends" value="{{account.numberOfFriends}}"/>
 
-    <input type="submit" value="Update profile" />
+  <input type="submit" value="Update Profile"/>
 </form>
 
-<form method="POST" action="/accounts/{{id}}?_method=DELETE">
-    <input type="submit" value="Delete profile" />
+<form method="POST" action="/accounts/{{account.id}}?_method=DELETE">
+  <input type="submit" value="Delete Profile" />
 </form>

@@ -28,31 +28,33 @@ accountRouter.get('/new', function(req, res) {
 
 
 accountRouter.get('/:accountId', function(req, res) {
-    accountsApi.getAccount(req.params.accountId)
-      .then(account => {
-        res.render('singleProfile', {account})
-      })
+  accountsApi.getAccount(req.params.accountId).then(
+    account => {
+      res.render('editProfile', {account})
+    }
+  )
 })
 
 //when new account is submitted it goes here.
 accountRouter.post('/', function(req, res){
   accountsApi.addAccount(req.body).then(
-    accounts => {
+    () => {
       res.redirect('/accounts/')
     })
 })
 
 accountRouter.put('/:accountId', function(req,res){
-  accountsApi.updateAccount(req.params.accountId, req.body)
-    .then(() => {
-      res.send('Account updated');
-    })
+  accountsApi.updateAccount(req.params.accountId, req.body).then(
+    () => {
+      res.redirect('/accounts/')
+    }
+  )
 })
 
 accountRouter.delete('/:accountId', function(req,res){
-  accountsApi.deleteAccount(req.params.accountId)
-    .then(() => {
-      res.send('Account deleted');
+  accountsApi.deleteAccount(req.params.accountId).then(
+    () => {
+      res.redirect('/accounts/')
     })
 })
 

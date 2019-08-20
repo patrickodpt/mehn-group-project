@@ -7,11 +7,11 @@
     {{#if account.single}} checked{{/if}}/>
 
     <label for="friends">Number of friends</label>
-    <input type="number" name="friends" value="{{singleProfile.accounts}}"/>
+    <input type="number" name="numberOfFriends" value="{{singleProfile.accounts}}"/>
 
     <input type="submit" value="Update profile" />
 </form>
 
-<form method="POST" action="/accounts/{{index}}?_method=DELETE">
+<form method="POST" action="/accounts/{{accountId}}?_method=DELETE">
     <input type="submit" value="Delete profile" />
 </form>

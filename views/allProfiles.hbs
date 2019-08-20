@@ -3,9 +3,9 @@
 <a href="/accounts/new">New Profile</a>
 
 <ul> 
-    {{#each accounts}}
+    {{#each }}
     <li>
-      <a href="accounts/{{id}}">{{name}}</a>
+      <a href="accounts/{{@accountId}}">{{name}}</a>
     </li>
     {{/each}}
 </ul>
